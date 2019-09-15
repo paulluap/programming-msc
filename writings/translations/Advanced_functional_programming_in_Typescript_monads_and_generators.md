@@ -6,7 +6,7 @@
 你可已在这个[库](https://github.com/miloszpp/typescript-monads)里找到所有代码。请查阅和这部分有关的代码分支。
 
 #### 生成器函数
-[ES6标准](http://es6-features.org/#GeneratorControlFlow)的一部分引入了生成器函数。生成器函数是一种特殊的函数，可以在执行中暂停。这听起来有些反直觉，如果你觉得javascript是单线程执行的，并遵守运行到结束方式(run-to-completion)。然而，有了生成器，代码依然是同步执行的。暂停执行以为这把控制返还给调用函数。调用函数然后在任一一点恢复执行。我们看一个简单例子: 
+[ES6标准](http://es6-features.org/#GeneratorControlFlow)的一部分引入了生成器函数。生成器函数是一种特殊的函数，可以在执行中暂停。这听起来有些反直觉，如果你觉得javascript是单线程执行的，并遵守运行到结束方式(run-to-completion)。然而，有了生成器，代码依然是同步执行的。暂停执行意味着把控制返还给调用者函数。调用者函数然后在任一一点恢复执行。我们看一个简单例子: 
 
 ```javascript
 function *numbers(): IterableIterator<number> { 
@@ -44,9 +44,9 @@ Inside numbers; after the first yield
 Outside of numbers; after the second next
 ```
 
-你可以看到，执行在`numbers`和调用函数之间来来回回。每次调用`next`会返回一个包含产生的值和是否结束的标志位`done`的`IteratorResult`。标志位`done`表示在`numbers`里面是否还有代码执行。
+你可以看到，执行在`numbers`和调用者函数之间来来回回。每次调用`next`会返回一个包含产生的值和是否结束的标志位`done`的`IteratorResult`。标志位`done`表示在`numbers`里面是否还有代码执行。
 
-!(https://codewithstyle.info/images/2018/02/Generators.png)
+![](https://codewithstyle.info/images/2018/02/Generators.png)
 
 生成器是一个强大的机制。一个用到的地方是构架无限懒加载序列(lazy, infinite sequences)。另一个是协程(co-routes) - 一种不同两部分代码可以通信的并发模型。
 
