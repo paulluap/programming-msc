@@ -1,5 +1,4 @@
-> 翻译自 [Advanced functional programming in TypeScript: Maybe monad]([https://codewithstyle.info/advanced-functional-programming-in-typescript-maybe-monad/](https://codewithstyle.info/advanced-functional-programming-in-typescript-maybe-monad/)
-)
+> 翻译自 [Advanced functional programming in TypeScript: Maybe monad](https://codewithstyle.info/advanced-functional-programming-in-typescript-maybe-monad/)
 
 从这篇博客开始， 我想做一个关于monad的简短系列。如果你对Javascript函数式编程有所了解[比如不可变(immutability)和纯函数(pure function)]，这里就带你进一步深入理解这种很酷的范式(paradigm)。无论你是否听说过monad, 或者听说过但不知道monad是什么，这个系列将尽可能用简单实用的词汇来解释monad。
 
