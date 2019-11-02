@@ -18,16 +18,16 @@ public class QuickSort {
         T partitionKey = a[lo];
         int i = lo;
         int j = hi+1;
+
         while(true){
+
             while(less(a[++i], partitionKey)){
                 //here I made a mistake: i>=j, since j = hi + 1, i would be hi+1 and out of bound
                 if(i==hi) break;
             }
-
             while(less(partitionKey, a[--j])){
                 if(j==lo) break;
             }
-
             if (i>=j) break;
 
             exch(a, i, j);
@@ -57,7 +57,7 @@ public class QuickSort {
         a[j]=temp;
     }
 
-    private static boolean less(Comparable a, Comparable b) {
+    private static <T extends Comparable<T>> boolean less(T a, T b) {
         return a.compareTo(b) < 0;
     }
 }
