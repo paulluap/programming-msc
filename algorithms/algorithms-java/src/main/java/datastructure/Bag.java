@@ -51,6 +51,11 @@ public class Bag<T> implements  Iterable<T>{
         return first == null;
     }
 
+    @Override
+    public String toString() {
+        return CollectionUtils.toString(this);
+    }
+
     public int size() {
         return this.size;
     }
@@ -60,9 +65,7 @@ public class Bag<T> implements  Iterable<T>{
         for(int i=0; i<100; i++){
             bag.add(i);
         }
-        for(int i : bag) {
-            System.out.println(i);
-        }
+        System.out.println(bag);
         System.out.println("size is: " + bag.size());
     }
 
