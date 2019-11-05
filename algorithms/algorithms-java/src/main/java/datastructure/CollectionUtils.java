@@ -9,6 +9,6 @@ public class CollectionUtils {
         if(sb.length() > 0) {
             sb.replace(sb.length()-1, sb.length(), "");
         }
-        return sb.toString();
+        return "[" + sb.toString() + "]";
     }
 }

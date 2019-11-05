@@ -43,6 +43,7 @@ public class Queue<T> implements  Iterable<T>{
 
 
     public void enqueue(T item)  {
+        //unlike stack or bag, for queue we grow from the last
         Node<T> node = new Node(item);
         if (isEmpty()) { last = node; first = last; }
         else           { last.next = node; last = node;}
