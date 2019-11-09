@@ -3,6 +3,9 @@ package cases;
 import datastructure.*;
 
 /**
+ *
+ * Dijkstra’s two-stack algorithm for expression evaluation
+ *
  * evaluate a fully parenthesized arithmetic expression
  * from left ot right,
  * push operands onto the operand stack
