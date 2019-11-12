@@ -13,14 +13,19 @@ public class MaxPQ <T extends Comparable<T>>{
 
     private int n;
 
-    public MaxPQ(int max){
-        a = (T[]) new Comparable[max + 1];
+    public MaxPQ(){
+        a = (T[]) new Comparable[2];
         n = 0;
     }
 
     public void insert(T item){
         //how about array index outof bound ?
         //start from 1
+        System.out.println("n: " + n + ": " + (a.length -1));
+        if (n == a.length - 1) {
+            resize(a.length*2); //do not use n*2, when n == 1 == a.length - 1, n*2 = 2, array is still size 2
+        }
+
         a[++n] = item;
         swim(n);
     }
@@ -37,7 +42,20 @@ public class MaxPQ <T extends Comparable<T>>{
         //reheap
         sink(1);
 
+//      my version:  if (n<a.length/4){, TODO: think about why?
+        if ((n > 0) && (n == (a.length - 1) / 4)){
+            resize(a.length/2);
+        }
+
         return item;
+    }
+
+    private void resize(int capacity){
+        T[] newA = (T[]) new Comparable[capacity];
+        for(int i=1; i<=n; i++){
+            newA[i] = a[i];
+        }
+        this.a = newA;
     }
 
     public boolean isEmpty() {
@@ -101,7 +119,7 @@ public class MaxPQ <T extends Comparable<T>>{
     }
 
     public static void main(String[] args) {
-        MaxPQ<String> pq = new MaxPQ<String>(20);
+        MaxPQ<String> pq = new MaxPQ<>();
         pq.insert("p");
         pq.insert("a");
         pq.insert("u");
@@ -117,6 +135,7 @@ public class MaxPQ <T extends Comparable<T>>{
         Stack<String> stack = new Stack<String>();
 
         while(!pq.isEmpty()) stack.push(pq.delMax());
+//        System.out.println(pq.a.length);
         System.out.println(stack);
 
     }
