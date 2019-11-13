@@ -85,6 +85,23 @@ public class MaxPQ <T extends Comparable<T>>{
         }
     }
 
+    private void sink(int i) {
+        //while has children
+        while(i*2 <= n){ //why need = , size can be odd
+            //if any child larger, exchange with the larger child
+            int childIndex = i*2;
+            //get the larger child
+            if (childIndex<n /*forgot this part*/ && less(childIndex, childIndex+1)) childIndex++;
+
+            //if no less than any child, stop
+            if (!less(i, childIndex)) break;
+
+            exch(i, childIndex);
+            i = childIndex;
+        }
+
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -95,27 +112,6 @@ public class MaxPQ <T extends Comparable<T>>{
             }
         }
         return sb.toString();
-    }
-
-    private void sink(int i) {
-        //while has children
-        while(i*2 <= n){ //why need = , size can be odd
-            //if any child larger, exchange with the larger child
-
-            int childIndex = i*2;
-            //get the larger child
-
-            if (childIndex<n /*forgot this part*/ && less(childIndex, childIndex+1)) childIndex++;
-
-            if (less(i, childIndex)){
-                exch(i, childIndex);
-                i = childIndex;
-            }else{
-                //if no less than any child, stop
-                break;
-            }
-        }
-
     }
 
     public static void main(String[] args) {
