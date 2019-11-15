@@ -16,9 +16,9 @@ public class BinarySearch {
         int lo = 0, hi = a.length - 1;
 
         //mid is either the exact middle index or the last of the left half
-        //[1,2] mid index: 0 lo=0, hi=1;
-        //[1,2,3] mid index: 1, lo=0, hi=2
-        //[1]: mid index: 0, hi = 0, lo = 0
+        //[1]:    mid=0, lo=0, hi=0
+        //[1,2]   mid=0, lo=0, hi=1
+        //[1,2,3] mid=1, lo=0, hi=2
         while(lo <= hi) {
             int mid = lo + (hi - lo) / 2;
             if (key < a[mid])     hi = mid - 1;
