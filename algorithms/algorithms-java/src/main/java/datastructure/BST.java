@@ -4,6 +4,7 @@ import java.util.NoSuchElementException;
 
 //balanced binary search tree
 //put get
+//TODO: add size
 public class BST <K extends Comparable<K>, V> {
     private class Node {
         K key;
@@ -12,10 +13,10 @@ public class BST <K extends Comparable<K>, V> {
         Node right;
         int size;
 
-        Node(K key, V value) {
+        Node(K key, V value, int size) {
             this.key = key;
             this.value = value;
-            this.size = 0;
+            this.size = size;
         }
 
         @Override
@@ -32,14 +33,14 @@ public class BST <K extends Comparable<K>, V> {
 
     public Node put(Node node, K k, V v) {
         //either return the passed in node, or create and return a new node is passed in node is null
-        if (node == null) return new Node(k, v);
+        if (node == null) return new Node(k, v, 1);
 
         int cmp = k.compareTo(node.key);
 
         if (cmp < 0) node.left = put(node.left, k, v);
         else if (cmp > 0) node.right = put(node.right, k, v);
         else node.value = v;
-
+        node.size = size(node.left) + size(node.right) + 1;
         return node;
     }
 
@@ -73,10 +74,11 @@ public class BST <K extends Comparable<K>, V> {
         root = deleteMin(root);
     }
 
-    private Node deleteMin(Node node) {
+    private Node deleteMin(final Node node) {
         System.out.println("delete min: " + node + ", "  + node.left + " - " + node.right);
         if (node.left == null) return node.right; //not null, but node.right !
         node.left = deleteMin(node.left);
+        node.size = size(node.left) + size(node.right) + 1;
         return node;
     }
 
@@ -97,6 +99,7 @@ public class BST <K extends Comparable<K>, V> {
     private Node deleteMax(Node node){
         if (node.right == null) return node.left;
         node.right = deleteMax(node.right);
+        node.size = size(node.left) + size(node.right) + 1;
         return node;
     }
 
@@ -117,7 +120,7 @@ public class BST <K extends Comparable<K>, V> {
         root = delete(root, k);
     }
 
-    private Node delete(Node node, K k) {
+    private Node delete(final Node node, K k) {
         if (node == null) return null;
         int cmp = k.compareTo(node.key);
         if      (cmp < 0)   node.left = delete(node.left, k);
@@ -130,23 +133,44 @@ public class BST <K extends Comparable<K>, V> {
             //must update right first
             n.right = deleteMin(node.right);
             n.left = node.left;
+            n.size = size(n.left) + size(n.right) + 1;
             return n;
         }
+
+        node.size = size(node.left) + size(node.right) + 1;
         return node;
     }
+
+    public int size(Node node){
+        if (node == null) return 0;
+        return node.size;
+    }
+
+    public boolean isEmpty(){
+        return size() == 0;
+    }
+
+    public int size(){
+        return size(root);
+    }
+
 
     public static void main(String[] args) {
         BST<String, String> bst = new BST<>();
         bst.put("e", "E");
+        System.out.println(bst.size());
         bst.put("b", "B");
+        System.out.println(bst.size());
         bst.put("c", "C");
+        System.out.println(bst.size());
         bst.put("a", "A");
+        System.out.println(bst.size());
         bst.put("f", "F");
+        System.out.println(bst.size());
         bst.put("d", "D");
-//        bst.deleteMin();
-//        bst.deleteMax();
-//        bst.delete("a");
+        System.out.println(bst.size());
         bst.delete("e");
+        System.out.println(bst.size());
         bst.showTree();;
 
 
