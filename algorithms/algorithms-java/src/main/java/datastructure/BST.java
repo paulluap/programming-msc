@@ -1,6 +1,5 @@
 package datastructure;
 
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class BST <K extends Comparable<K>, V> {
@@ -31,13 +30,13 @@ public class BST <K extends Comparable<K>, V> {
 
     public Node put(Node node, K k, V v) {
         //either return the passed in node, or create and return a new node is passed in node is null
-        if (node == null) return new Node(k, v, 1);
+        if (node == null) return new Node(k, v, 1); //insert new node
 
         int cmp = k.compareTo(node.key);
 
         if      (cmp < 0) node.left  = put(node.left, k, v);
         else if (cmp > 0) node.right = put(node.right, k, v);
-        else              node.value = v;
+        else              node.value = v; //override
 
         node.size = size(node.left) + size(node.right) + 1;
         return node;
@@ -74,7 +73,6 @@ public class BST <K extends Comparable<K>, V> {
     }
 
     private Node deleteMin(final Node node) {
-//        System.out.println("delete min: " + node + ", "  + node.left + " - " + node.right);
         if (node.left == null) return node.right; //not null, but node.right !
         node.left = deleteMin(node.left);
         node.size = size(node.left) + size(node.right) + 1;
