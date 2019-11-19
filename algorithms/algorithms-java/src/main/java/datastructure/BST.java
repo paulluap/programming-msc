@@ -1,10 +1,8 @@
 package datastructure;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
-//balanced binary search tree
-//put get
-//TODO: add size
 public class BST <K extends Comparable<K>, V> {
     private class Node {
         K key;
@@ -37,9 +35,10 @@ public class BST <K extends Comparable<K>, V> {
 
         int cmp = k.compareTo(node.key);
 
-        if (cmp < 0) node.left = put(node.left, k, v);
+        if      (cmp < 0) node.left  = put(node.left, k, v);
         else if (cmp > 0) node.right = put(node.right, k, v);
-        else node.value = v;
+        else              node.value = v;
+
         node.size = size(node.left) + size(node.right) + 1;
         return node;
     }
@@ -75,7 +74,7 @@ public class BST <K extends Comparable<K>, V> {
     }
 
     private Node deleteMin(final Node node) {
-        System.out.println("delete min: " + node + ", "  + node.left + " - " + node.right);
+//        System.out.println("delete min: " + node + ", "  + node.left + " - " + node.right);
         if (node.left == null) return node.right; //not null, but node.right !
         node.left = deleteMin(node.left);
         node.size = size(node.left) + size(node.right) + 1;
@@ -141,6 +140,31 @@ public class BST <K extends Comparable<K>, V> {
         return node;
     }
 
+    public Iterable<K> keys(){
+        if (isEmpty()) return new Queue<>();
+        return keys(min(), max());
+    }
+
+
+    public Iterable<K> keys(K lo, K hi) {
+        Queue<K> q = new Queue<>();
+        keys(root, q, lo, hi);
+        return q;
+    }
+
+    public void keys(Node node, Queue<K> q, K lo, K hi) {
+        if (node == null) return;
+
+        int loLess = lo.compareTo(node.key);
+        int hiLarger = hi.compareTo(node.key);
+
+        //key not less than low, maybe elements in left subtree
+        if (loLess < 0) keys(node.left, q, lo, hi);
+        if (loLess <= 0 && hiLarger >= 0) q.enqueue(node.key);
+        //key not larger than hi, maybe elements in right subtree
+        if (hiLarger > 0) keys(node.right, q, lo, hi);
+    }
+
     public int size(Node node){
         if (node == null) return 0;
         return node.size;
@@ -158,30 +182,13 @@ public class BST <K extends Comparable<K>, V> {
     public static void main(String[] args) {
         BST<String, String> bst = new BST<>();
         bst.put("e", "E");
-        System.out.println(bst.size());
         bst.put("b", "B");
-        System.out.println(bst.size());
         bst.put("c", "C");
-        System.out.println(bst.size());
         bst.put("a", "A");
-        System.out.println(bst.size());
         bst.put("f", "F");
-        System.out.println(bst.size());
         bst.put("d", "D");
-        System.out.println(bst.size());
-        bst.delete("e");
-        System.out.println(bst.size());
-        bst.showTree();;
+        System.out.println(bst.keys("c", "f"));
 
-
-        System.out.println(bst.get("f"));
-        System.out.println(bst.get("d"));
-        System.out.println(bst.get("c"));
-        System.out.println(bst.get("e"));
-        System.out.println(bst.get("a"));
-        System.out.println(bst.get("b"));
-
-        System.out.println("min: " + bst.min() + ", max: " + bst.max());
 
     }
 }
