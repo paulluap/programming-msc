@@ -102,15 +102,19 @@ public class BST <K extends Comparable<K>, V> {
 
 
     public void showTree(){
-        Queue<Node> q = new Queue<Node>();
-        if(root == null) return;
-        q.enqueue(root);
-        while(!q.isEmpty()){
-            Node node = q.dequeue();
-            System.out.println(node + " -> (" + node.left + ", " + node.right + ")");
-            if (node.left != null) q.enqueue(node.left);
-            if (node.right != null) q.enqueue(node.right);
+        this.showTree(root, 0);
+    }
+
+    private void showTree(Node node, int space) {
+        if (node == null) return;
+        showTree(node.right, space+1);
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<space; i++) {
+            sb.append("-");
         }
+        System.out.println(sb.append(node.key));
+        showTree(node.left, space+1);
     }
 
     public void delete(K k){

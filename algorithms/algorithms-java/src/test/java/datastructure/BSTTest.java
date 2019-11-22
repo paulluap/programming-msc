@@ -6,8 +6,17 @@ import org.junit.Test;
 public class BSTTest {
 
     @Test
+    public void showBst() {
+        RedBlackBST<Integer, Integer> bst = new RedBlackBST<Integer, Integer>();
+        for(int i=0; i<50; i++){
+            bst.put(i,i);
+        }
+        bst.showTree();
+
+    }
+    @Test
     public void testBst(){
-        RedBlackBST<String, String> bst = new RedBlackBST<String, String>();
+        BST<String, String> bst = new BST<String, String>();
         Assert.assertEquals(0, bst.size());
         bst.put("P","p");
         bst.put("A","a");
@@ -25,6 +34,7 @@ public class BSTTest {
         Assert.assertEquals("s", bst.get("S"));
         Assert.assertEquals("a2", bst.get("A"));
         Assert.assertEquals(null, bst.get("a"));
+        bst.showTree();
 //        bst.delete("P");
 //        bst.delete("A");
 //        bst.delete("a");

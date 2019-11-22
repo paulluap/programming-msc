@@ -45,7 +45,7 @@ public class RedBlackBST<K extends Comparable<K>, V> {
         else              node.value = v;
 
         //fix RB tree
-        if(isRed(node.left) && isRed(node.left.right)) node = rotateLeft(node);
+        if(isRed(node.right) && !isRed(node.left)) node = rotateLeft(node);
         if(isRed(node.left) && isRed(node.left.left))  node = rotateRight(node);
         if(isRed(node.left) && isRed(node.right))      flipColors(node);
 
@@ -114,6 +114,22 @@ public class RedBlackBST<K extends Comparable<K>, V> {
 
     public int size() {
         return size(root);
+    }
+
+    public void showTree(){
+        this.showTree(root, 0);
+    }
+
+    private void showTree(Node node, int space) {
+        if (node == null) return;
+        showTree(node.right, space+1);
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<space; i++) {
+            sb.append("-");
+        }
+        System.out.println(sb.append(node.key));
+        showTree(node.left, space+1);
     }
 
 }
