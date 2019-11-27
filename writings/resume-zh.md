@@ -62,12 +62,12 @@
       - 基于Web的代码分析工具
         - 实现新架构原型: web界面, NodeJS服务器, RabbitMQ, 已有代码分析器集成(Lisp)
         - 优化代码度量查询: 前端(Javascript, Nodejs, MongoDB)后端(Common Lisp)分离, 支持快速查询和树状数据查询
-        - 实现浏览器代码编辑器语法和语义减产 (JISON, codemirror)
+        - 实现浏览器代码编辑器语法和语义检查 (JISON, codemirror)
 
       - 信息系统
         - 实现基于bootstrap的GWT新主题, 实现新的界面组件包括时间线, 大屏滚动表格
         - 实现监管系统食品分类信息解析器(clojure instaparser), 并导入大量原始分类数据
-        - 维护基础设runtime代码库 (Spring, Hiberanate, GWT UI)         
+        - 维护基础runtime代码库 (Spring, Hiberanate, GWT UI)         
 
    - Uniquesoft 存余代码自动重构
 
@@ -80,7 +80,7 @@
 
       - MainFrame到Java/C# migration:
         - 使用主流技术(Spring, Hiberanate and Angular UI)实现项目原型, 并和从COBOL转成的Java代码集成
-        - 创建自动化单元测试和集成测试 tests and integarion tests (robot) to verify the funtionality
+        - 创建自动化单元测试和集成测试(robot)验证功能
 
       - Java 业务规则提取 
         - 实现基于drools规则引擎的业务规则原型
