@@ -1,6 +1,7 @@
 
 ------
 
+
 -------
 
 ### 工作经历
@@ -76,7 +77,7 @@
 
       - Java转PL/SQL迁移
         - 集成并修复从Java自动生成的PL/SQL代码, 向代码生成器团队报bug
-        - 在美国总部进行生产环境部署和支持, 保证上海团队集成和美国部署进度一致, AT&T客户支持
+        - 在美国总部进行生产环境部署和支持, 协调上海团队集成和美国部署进度, AT&T客户支持
 
       - MainFrame到Java/C# migration:
         - 使用主流技术(Spring, Hiberanate and Angular UI)实现项目原型, 并和从COBOL转成的Java代码集成
