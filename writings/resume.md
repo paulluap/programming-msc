@@ -14,10 +14,33 @@
       - Miscellaneous tasks in information system projects: infrastructures, tooling, UI
 
 ### Education
+
    - Bachelar in Information Engineering  /  East China University of Science and Technology / 2007 - 2011
    - Bachelar in English / East China University of Science and Technology / 2007 - 2011
 
 ### Technical Experience
+
+   - Yitang Business Projects
+
+      - Implemented a real-name authentication openAPI service, 
+      - Refactored history data persistence for a exchange platform by seperating data into different tables, 
+        implemented an auto code generator for JPA query and entity code generation
+      - Implmeneted openAPI for a exchange platform, with references to a popular trading platform OKEx
+      - Implemented 10+ auto trading strategies and a web dashboard for configuration (Nodejs, Epxress, Reactjs)
+      - Implemented a utxo cache plugin for bitcore wallet service, which allows faster utxo queries
+      - Research in smart contracts (ETH, HyperLedger)
+      - Deployement of services using docker, portainer or k8s
+
+
+   - Yitang Tools
+
+      - Implementation of new language features for EDL (entity deifinition language targeting Spring and Hiberante) and UIDL (UI definition language targeting GWT)
+         - Simplified UI component definition to enable easy UI composition
+         - Added spring cloud message features in state machine transitions
+         - Upgraded EDL and UIDL modeling tools, allowing command line continous integration
+         - Maintainance of infrastructure runtime code
+
+
    - Uniquesoft Tools
 
       - Eclipse-based Modeling Tool Suite
@@ -57,26 +80,8 @@
         - Prototyping business rule implemention using the drools rule engine 
         - Creating unit test cases with PowerMock to test the auto generated drools rules
 
-   - Yitang Tools
-
-      - Implementation of new language features for EDL (entity deifinition language targeting Spring and Hiberante) and UIDL (UI definition language targeting GWT)
-         - Simplified UI component definition to enable easy UI composition
-         - Added spring cloud message features in state machine transitions
-         - Upgraded EDL and UIDL modeling tools, allowing command line continous integration
-         - Maintainance of infrastructure runtime code
-
-   - Yitang Business Projects
-
-      - Implemented a real-name authentication openAPI service, 
-      - Refactored history data persistence for a exchange platform by seperating data into different tables, 
-        implemented an auto code generator for JPA query and entity code generation
-      - Implmeneted openAPI for a exchange platform, with references to a popular trading platform OKEx
-      - Implemented 10+ auto trading strategies and a web dashboard for configuration (Nodejs, Epxress, Reactjs)
-      - Implemented a utxo cache plugin for bitcore wallet service, which allows faster utxo queries
-      - Research in smart contracts (ETH, HyperLedger)
-      - Deployement of services using docker, portainer or k8s
-
 ### Languages and Technologies
+
    - Java: Spring, Hiberante, 
    - Distributed application: RabbitMq, Spring-cloud, Docker
    - Blockchain: bitcore
