@@ -36,7 +36,7 @@
 
       - Implementation of new language features for EDL (entity deifinition language targeting Spring and Hiberante) and UIDL (UI definition language targeting GWT)
          - Simplified UI component definition to enable easy UI composition
-         - Added spring cloud message features in state machine transitions
+         - Added spring cloud message notification and observation features in state machine transitions
          - Upgraded EDL and UIDL modeling tools, allowing command line continous integration
          - Maintenance of infrastructure runtime code (based on Spring, Hibernate, Spring-cloud)
 

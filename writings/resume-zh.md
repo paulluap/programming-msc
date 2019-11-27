@@ -1,29 +1,39 @@
+
+------
+
+-------
+
 ### 工作经历
    - 溢唐科技数据有限公司(Yitang Data) / 软件工程师 / 2018年6月 - 现在
-      - 负责自动量化交易策略开发和平台实现
-      - 区块链钱包先关服务开发
+      - 负责自动量化交易策略和控制台开发
+      - 区块链钱包相关服务开发
       - 实现交易所OpenAPI服务, 实名认证服务
       - 优化交易所大量流水数据存储
-      - 负责建模语言运行时和工具维护开发
+      - 建模语言运行时和工具维护开发
 
    - 友励科软件(上海)有限公司 (Uniquesoft) / 软件工程师 / 2011年8月 - 2018年6月
       - 开发基于Eclipse的建模领域特定语言(DSL)工具 
       - 重构基于web的代码分析工具, 改进代码度量查询 
       - 验证集成Java转PL/SQL工程, 在美国总部生产环境支持
-      - 完成10+自动现代化迁移工程概念论证(POC)项目原型和验证 
+      - 完成10+个自动现代化迁移工程概念论证(POC)项目原型和验证 
       - 负责信息系统基础架构代码维护和开发, 工具链开发, 界面开发
 
+
 ### 教育
+-------
+
    - 本科 信息工程 /  华东理工大学 / 2007 - 2011
    - 本科 英语(辅修) / 华东理工大学 / 2007 - 2011
 
+
 ### 技术经历 
+-------
 
    - Yitang 业务项目
 
-      - 实现实名认证openAPI服务, 
-      - 为交易平台重构历史流水数据存储, 分表和并创建统一化查询接口, 自动生成不同资产交易流水的保存和查询代码
-      - 实现交易所第三方OpenAPI, 通过商户秘钥和商户ID来认证(参考了其他主流交易所平台)
+      - 实现实名认证OpenAPI服务, 
+      - 为交易平台重构历史流水数据存储, 分表和并创建统一查询接口, 自动生成不同资产交易流水的创建和查询代码
+      - 实现交易所第三方OpenAPI服务, 通过商户秘钥和商户ID来认证(参考其他主流交易所平台)
       - 实现了多种自动交易策略(深度控制,行情等等)和web控制台(Nodejs, Epxress, React)
       - 实现区块链钱包服务UTXO缓存插件, 支持快速UTXO查询
       - 学习智能合约smart contracts (ETH, HyperLedger)
@@ -33,9 +43,9 @@
 
       - 为公司建模语言实现新的语言特性: EDL (entity deifinition language targeting Spring and Hiberante) 和 UIDL (UI definition language targeting GWT)
          - 实现更简化的UI组件定义语法并支持更方便的组件组合
-         - 为状态机迁移增加Spring Cloud Message 通知机制
-         - 升级EDL and UIDL建模工具, 支持命令行持续集成
-         - 维护基础runtime代码库(基于Spring, Hibernate, Spring-cloud)
+         - 为状态机迁移增加Spring Cloud Message 通知和监听语法
+         - 升级EDL and UIDL建模工具, 支持maven命令行持续集成
+         - 维护基础runtime代码库(基于Spring, Hibernate, Spring-cloud, maven archetype)
 
 
    - Uniquesoft工具
@@ -56,8 +66,8 @@
 
       - 信息系统
         - 实现基于bootstrap的GWT新主题, 实现新的界面组件包括时间线, 大屏滚动表格
-        - 实现监管系统食品分类信息解析器(clojure instaparser), 并导入大量已有分类数据
-        - 维护基础设施代码 (Spring, Hiberanate, GWT UI)         
+        - 实现监管系统食品分类信息解析器(clojure instaparser), 并导入大量原始分类数据
+        - 维护基础设runtime代码库 (Spring, Hiberanate, GWT UI)         
 
    - Uniquesoft 存余代码自动重构
 
@@ -78,6 +88,8 @@
 
 
 ### 语言和技术
+-------
+
    - Java: Spring, Hiberante, 
    - Distributed application: RabbitMq, Spring-cloud, Docker
    - Blockchain: bitcore
