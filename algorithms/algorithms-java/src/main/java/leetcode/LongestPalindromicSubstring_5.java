@@ -3,7 +3,6 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class LongestPalindromicSubstring_5 {
 
     public static void main(String[] args) {
