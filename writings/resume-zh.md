@@ -24,7 +24,7 @@
       - 实现实名认证openAPI服务, 
       - 为交易平台重构历史流水数据存储, 分表和并创建统一化查询接口, 自动生成不同资产交易流水的保存和查询代码
       - 实现交易所第三方OpenAPI, 通过商户秘钥和商户ID来认证(参考了其他主流交易所平台)
-      - 实现了多种自动交易策略和web控制平台(Nodejs, Epxress, React)
+      - 实现了多种自动交易策略(做市,行情等等)和web控制平台(Nodejs, Epxress, React)
       - 实现区块链钱包服务UTXO缓存插件, 支持快速UTXO查询
       - 学习智能合约smart contracts (ETH, HyperLedger)
       - 使用docker, portainer, k8s部署开发的服务

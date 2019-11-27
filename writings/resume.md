@@ -26,7 +26,7 @@
       - Refactored history data persistence for a exchange platform by seperating data into different tables, 
         implemented an auto code generator for JPA query and entity code generation
       - Implmeneted openAPI for a exchange platform, with references to a popular trading platform OKEx
-      - Implemented 10+ auto trading strategies and a web dashboard for configuration (Nodejs, Epxress, Reactjs)
+      - Implemented different auto trading strategies and a web dashboard for configuration (Nodejs, Epxress, Reactjs)
       - Implemented a utxo cache plugin for bitcore wallet service, which allows faster utxo queries
       - Research in smart contracts (ETH, HyperLedger)
       - Deployement of services using docker, portainer or k8s
