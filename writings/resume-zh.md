@@ -6,7 +6,7 @@
       - 优化交易所大量流水数据存储
       - 负责建模语言运行时和工具维护开发
 
-   - 友励科学软件(上海)有限公司 (Uniquesoft) / 软件工程师 / 2011年8月 - 2018年6月
+   - 友励科软件(上海)有限公司 (Uniquesoft) / 软件工程师 / 2011年8月 - 2018年6月
       - 开发基于Eclipse的建模领域特定语言(DSL)工具 
       - 重构基于web的代码分析工具, 改进代码度量查询 
       - 验证集成Java转PL/SQL工程, 在美国总部生产环境支持
@@ -24,7 +24,7 @@
       - 实现实名认证openAPI服务, 
       - 为交易平台重构历史流水数据存储, 分表和并创建统一化查询接口, 自动生成不同资产交易流水的保存和查询代码
       - 实现交易所第三方OpenAPI, 通过商户秘钥和商户ID来认证(参考了其他主流交易所平台)
-      - 实现了多种自动交易策略(做市,行情等等)和web控制平台(Nodejs, Epxress, React)
+      - 实现了多种自动交易策略(深度控制,行情等等)和web控制台(Nodejs, Epxress, React)
       - 实现区块链钱包服务UTXO缓存插件, 支持快速UTXO查询
       - 学习智能合约smart contracts (ETH, HyperLedger)
       - 使用docker, portainer, k8s部署开发的服务
@@ -35,7 +35,7 @@
          - 实现更简化的UI组件定义语法并支持更方便的组件组合
          - 为状态机迁移增加Spring Cloud Message 通知机制
          - 升级EDL and UIDL建模工具, 支持命令行持续集成
-         - 维护工具基础runtime代码
+         - 维护基础runtime代码库(基于Spring, Hibernate, Spring-cloud)
 
 
    - Uniquesoft工具

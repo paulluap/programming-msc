@@ -38,7 +38,7 @@
          - Simplified UI component definition to enable easy UI composition
          - Added spring cloud message features in state machine transitions
          - Upgraded EDL and UIDL modeling tools, allowing command line continous integration
-         - Maintainance of infrastructure runtime code
+         - Maintenance of infrastructure runtime code (based on Spring, Hibernate, Spring-cloud)
 
 
    - Uniquesoft Tools
