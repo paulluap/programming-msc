@@ -9,11 +9,13 @@ public class SeperateChainingHashST<K, V> {
     public SeperateChainingHashST(int c){
         m = c;
         chains = new SequentialSearchST[m];
+        for(int i=0; i<m; i++) {
+            chains[i] = new SequentialSearchST<>();
+        }
     }
 
     public SeperateChainingHashST(){
-        m = 2;
-        chains = new SequentialSearchST[m];
+        this(2);
     }
 
     private int hash(K k){
@@ -22,9 +24,8 @@ public class SeperateChainingHashST<K, V> {
     }
 
     private void resize(int c){
-        SeperateChainingHashST<K,V> newST = new SeperateChainingHashST<>();
-        for(SequentialSearchST<K,V> chain: chains) {
-            if (chain == null) continue;
+        SeperateChainingHashST<K,V> newST = new SeperateChainingHashST<>(c);
+        for(SequentialSearchST<K,V> chain: this.chains) {
             for (K k: chain.keys()) {
                 newST.put(k, chain.get(k));
             }
@@ -36,25 +37,39 @@ public class SeperateChainingHashST<K, V> {
 
     public void put(K k, V v){
         int i = hash(k);
-        if (chains[i]==null){
-            chains[i] = new SequentialSearchST<>();
-        }
         if (!chains[i].contains(k)) n++;
         chains[i].put(k,v);
+
+        //if average length of list >= 10, double table size
+        if(n >= 10*m) resize(m*2);
     }
 
     public V get(K k){
         int i = hash(k);
-        if (chains[i]== null) return null;
         return chains[i].get(k);
     }
 
     public void delete(K k){
         int i = hash(k);
-        if (chains[i] == null) return;
-
         if (chains[i].contains(k)) n--;
         chains[i].delete(k);
+        //half table sie if avg len of list <= 2
+        if(n <= 2*m) resize(m/2);
+    }
+
+    public Iterable<K> keys()  {
+        Queue<K> q = new Queue<>();
+        for(int i=0; i<m; i++){
+            System.out.println("keys for chains[" + i+ "]: " + chains[i].keys());
+            for(K k : chains[i].keys()){
+                q.enqueue(k);
+            }
+        }
+        return q;
+    }
+
+    public int size(){
+        return n;
     }
 
 
@@ -68,10 +83,12 @@ public class SeperateChainingHashST<K, V> {
         st.put("a", "A");
         st.put("f", "F");
         st.put("d", "D");
-
-        System.out.println(st.get("d"));
         st.delete("d");
-        System.out.println(st.get("d"));
+        st.delete("c");
+        st.delete("e");
+
+        System.out.println("keys: " + st.keys() + " of size; " + st.size());
+
 
     }
 
