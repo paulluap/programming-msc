@@ -59,6 +59,36 @@ public class GraphAlgTest {
         Assert.assertEquals("[0,5,4,2]", bfs.pathTo(2).toString());
     }
 
+    @Test
+    public void toplogical(){
+        Digraph dag =tinyDag();
+        System.out.println(dag);
+        Topological top2 = new Topological(dag);
+        Assert.assertEquals("[8,7,2,3,0,6,9,10,11,12,1,5,4]", top2.topOrder().toString());
+
+    }
+
+    public Digraph tinyDag(){
+        Digraph g = new Digraph(13);
+
+        g.addEdge(2,3);
+        g.addEdge(0,6);
+        g.addEdge(0,1);
+        g.addEdge(2,0);
+        g.addEdge(11,12);
+        g.addEdge(9,12);
+        g.addEdge(9,10);
+        g.addEdge(9,11);
+        g.addEdge(3,5);
+        g.addEdge(8,7);
+        g.addEdge(5,4);
+        g.addEdge(0,5);
+        g.addEdge(6,4);
+        g.addEdge(6,9);
+        g.addEdge(7,6);
+        return g;
+
+    }
 
     public Digraph makeDigraph(){
         Digraph g = new Digraph(13);
