@@ -26,7 +26,7 @@ public class Topological {
             }
         }
         toporder.push(s);
-        System.out.println("post order : " + toporder);
+//        System.out.println("post order : " + toporder);
     }
 
     public Iterable<Integer> topOrder(){

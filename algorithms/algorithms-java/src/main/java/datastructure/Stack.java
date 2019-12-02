@@ -56,6 +56,11 @@ public class Stack<T> implements Iterable<T> {
         return item;
     }
 
+    public T peek(){
+        if (isEmpty()) return null;
+        return first.item;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }

@@ -37,6 +37,20 @@ public class GraphAlgTest {
         Assert.assertEquals(false, search.marked(8));
         System.out.println(search.pathTo(3));
     }
+
+    @Test
+    public void testNonRecusiveDfs(){
+        Graph graph = makeGraph();
+        DepthFirstNonRecursive dfs= new DepthFirstNonRecursive(graph, 0);
+        Assert.assertEquals(7, dfs.count());
+        Assert.assertEquals(true, dfs.marked(4));
+        Assert.assertEquals(true, dfs.marked(1));
+        Assert.assertEquals(false, dfs.marked(9));
+        Assert.assertEquals(false, dfs.marked(8));
+//        System.out.println(dfs.pathTo(3));
+
+    }
+
     @Test
     public void testBfs(){
         Graph graph = makeGraph();
