@@ -49,4 +49,22 @@ public class EdgeWeightedGraph {
         return s.toString();
     }
 
+    public Iterable<Edge> edges(){
+        Bag<Edge> list = new Bag<Edge>();
+        for(int v=0; v<V; v++){
+            for(Edge e : adj(v)){
+                int selfLoop = 0;
+                //ensures only add one
+                if (e.other(v) > v) {
+                    list.add(e);
+                }else if(e.other(v)==v) {
+                    //self loop are consecutive
+                    if (selfLoop%2 == 0) list.add(e);
+                    selfLoop++;
+                }
+            }
+        }
+        return list;
+    }
+
 }
