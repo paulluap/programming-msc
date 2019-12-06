@@ -1,6 +1,8 @@
 package datastructure;
 
 
+import java.util.Comparator;
+
 public class MinPQ <T extends Comparable<T>>{
 
     //heap order for minPQ, key in node <= 2 children
@@ -8,6 +10,12 @@ public class MinPQ <T extends Comparable<T>>{
     private T[] heap;
     //size
     private int n;
+
+    private Comparator<T> comparator;
+
+    public MinPQ(Comparator<T> comparator){
+        this.comparator = comparator;
+    }
 
     public MinPQ(){
         //TODO new Object[initial_capacity + 1]
@@ -70,7 +78,9 @@ public class MinPQ <T extends Comparable<T>>{
     }
 
     private boolean greater(int i, int j){
+        if (comparator == null)
         return heap[i].compareTo(heap[j]) > 0;
+        return comparator.compare(heap[i], heap[j]) > 0;
     }
 
     private void exch(int i, int j){

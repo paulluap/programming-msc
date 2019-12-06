@@ -26,8 +26,8 @@ public class LazyPrimMST {
             int v = minE.either(), w = minE.other(v);
             if (marked[v] && marked[w]) continue;
             mst.enqueue(minE);
-            if (!marked[v]) scan(G, v);
-            if (!marked[w]) scan(G, w);
+            if (!marked[v]) scan(G, v); //mark and scan
+            if (!marked[w]) scan(G, w); //mark and scan
         }
     }
 

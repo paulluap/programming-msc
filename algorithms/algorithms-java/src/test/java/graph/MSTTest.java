@@ -35,4 +35,11 @@ public class MSTTest {
         LazyPrimMST prim = new LazyPrimMST(g);
         Assert.assertEquals("[0-7 0.16000,1-7 0.19000,0-2 0.26000,2-3 0.17000,5-7 0.28000,4-5 0.35000,6-4 0.39000]", prim.mst().toString());
     }
+
+    @Test
+    public void testKruskals(){
+        EdgeWeightedGraph g = graph();
+        KruskalMST kruskal = new KruskalMST(g);
+        Assert.assertEquals("[0-7 0.16000,2-3 0.17000,1-7 0.19000,0-2 0.26000,5-7 0.28000,4-5 0.35000,6-4 0.39000]", kruskal.mst().toString());
+    }
 }
