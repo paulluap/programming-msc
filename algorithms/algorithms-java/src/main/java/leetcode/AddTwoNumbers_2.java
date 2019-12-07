@@ -4,27 +4,6 @@ import java.util.List;
 
 //https://leetcode.com/problems/add-two-numbers/
 public class AddTwoNumbers_2 {
-    static class ListNode {
-      int val;
-      ListNode next;
-      ListNode next(int i) {
-          this.next = new ListNode(i);
-          return next;
-      }
-      ListNode(int x) { val = x; }
-
-      @Override
-      public String toString() {
-          StringBuilder sb = new StringBuilder();
-          ListNode current = this;
-          while(current != null){
-              sb.append(current.val);
-              current = current.next;
-              if (current!=null) sb.append("->");
-          }
-          return sb.toString();
-      }
-    }
 
     public static void main(String[] args) {
         //(2 -> 4 -> 3) + (5 -> 6 -> 4)

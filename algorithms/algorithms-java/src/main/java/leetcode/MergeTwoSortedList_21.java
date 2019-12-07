@@ -2,24 +2,6 @@ package leetcode;
 
 public class MergeTwoSortedList_21 {
 
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-
-        @Override
-        public String toString() {
-            ListNode n = this;
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.val);
-            while(n.next != null){
-                sb.append("->" + n.next.val);
-                n = n.next;
-            }
-            return sb.toString();
-        }
-    }
-
     public static void main(String[] args) {
         //Input: 1->2->4, 1->3->4
         ListNode n1 = new ListNode(1);

@@ -1,7 +1,5 @@
 package leetcode;
 
-import sun.font.CStrike;
-
 import java.util.function.Function;
 
 public class StringToInteger_8 {

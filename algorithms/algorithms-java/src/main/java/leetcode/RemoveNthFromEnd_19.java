@@ -17,24 +17,6 @@ public class RemoveNthFromEnd_19 {
         System.out.println(n5);
     }
 
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-
-        @Override
-        public String toString() {
-            ListNode n = this;
-            StringBuilder sb = new StringBuilder();
-            sb.append(n.val);
-            while(n.next != null){
-                sb.append("->" + n.next.val);
-                n = n.next;
-            }
-            return sb.toString();
-        }
-    }
-
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head.next == null){
             return null;
