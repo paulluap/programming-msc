@@ -1,6 +1,8 @@
 package graph;
 
 import datastructure.Digraph;
+import datastructure.DirectedEdge;
+import datastructure.EdgeWeightedDiagraph;
 import datastructure.Stack;
 
 public class Topological {
@@ -10,6 +12,12 @@ public class Topological {
     private Stack<Integer> toporder = new Stack<>();
     //finish me
     public Topological(Digraph G){
+        marked = new boolean[G.V()];
+        for(int v=0; v<G.V(); v++){
+            if (!marked[v]) dfs(G, v);
+        }
+    }
+    public Topological(EdgeWeightedDiagraph G){
         marked = new boolean[G.V()];
         for(int v=0; v<G.V(); v++){
             if (!marked[v]) dfs(G, v);
@@ -26,7 +34,16 @@ public class Topological {
             }
         }
         toporder.push(s);
-//        System.out.println("post order : " + toporder);
+    }
+
+    private void dfs(EdgeWeightedDiagraph G, int s){
+        marked[s] = true;
+        for(DirectedEdge e: G.adj(s)){
+            if (!marked[e.to()]){
+                dfs(G, e.to());
+            }
+        }
+        toporder.push(s);
     }
 
     public Iterable<Integer> topOrder(){

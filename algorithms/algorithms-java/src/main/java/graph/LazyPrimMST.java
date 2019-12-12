@@ -20,6 +20,7 @@ public class LazyPrimMST {
 
     public void prim(EdgeWeightedGraph G, int s){
         //add all incident edges to the minPQ
+        //find a edge from tree vertex to non-tree vertex
         scan(G, s);
         while(!minPQ.isEmpty()){
             Edge minE = minPQ.delMin();

@@ -23,7 +23,6 @@ public class MinPQ <T extends Comparable<T>>{
     }
 
     public void insert(T v){
-        //TODO resize
         if (n == heap.length - 1) resize(2 * heap.length);
         n = n+1;
         heap[n] = v;

@@ -39,4 +39,11 @@ public class DirectedGraphTest {
         Assert.assertEquals("[0->2(0.26),2->7(0.34),7->3(0.39),3->6(0.52)]", sp.pathTo(6).toString());
     }
 
+    @Test
+    public void topSortSP(){
+        EdgeWeightedDiagraph g = this.createDigraph();
+        AcyclicSP sp = new AcyclicSP(g, 0);
+        Assert.assertEquals("[0->2(0.26),2->7(0.34),7->3(0.39),3->6(0.52)]", sp.pathTo(6).toString());
+    }
+
 }

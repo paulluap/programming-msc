@@ -1,5 +1,7 @@
 package datastructure;
 
+import java.util.NoSuchElementException;
+
 public class IndexMinPQ<Item extends Comparable<Item>> {
 
     private int n;
@@ -73,7 +75,7 @@ public class IndexMinPQ<Item extends Comparable<Item>> {
     /**
      * is the priority queue empty ?
      */
-    boolean isEmpty(){
+    public boolean isEmpty(){
         return size()==0;
     }
 
@@ -105,6 +107,16 @@ public class IndexMinPQ<Item extends Comparable<Item>> {
         pq[j] = k;
         qp[pq[i]] = i;
         qp[pq[j]] = j;
+    }
+
+    public void delete(int i){
+        int index = qp[i];
+        if (!contains(i)) throw new NoSuchElementException("");
+        exch(index, n--);
+        swim(index);
+        sink(index);
+        keys[i] = null;
+        qp[i] = -1;
     }
 
     private boolean greater(int i, int j){

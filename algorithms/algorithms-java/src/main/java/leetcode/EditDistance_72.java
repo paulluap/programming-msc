@@ -36,12 +36,14 @@ public class EditDistance_72 {
         //initialize a matrx
         int[][] m = new int[word1.length()+1][word2.length()+1];
         /**
-         * [ [ -  w o r d 2 2
-         * [ [ w
-         * [ [ o
-         * [ [ r
-         * [ [ d
-         * [ [ 1
+         * [
+         *   [ -  w o r d 2 2
+         *   [ w
+         *   [ o
+         *   [ r
+         *   [ d
+         *   [ 1
+         *]
          *
          */
         //m.length : first demension, m[0].length: second demension

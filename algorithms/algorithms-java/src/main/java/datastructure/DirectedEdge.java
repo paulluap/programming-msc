@@ -1,6 +1,6 @@
 package datastructure;
 
-public class DirectedEdge {
+public class DirectedEdge implements Comparable<DirectedEdge>{
     private int v;
     private int w;
     private double weight;
@@ -25,5 +25,12 @@ public class DirectedEdge {
     @Override
     public String toString() {
         return v + "->" + w + "(" + weight + ")";
+    }
+
+    @Override
+    public int compareTo(DirectedEdge o) {
+        if (this.weight() < o.weight()) return -1;
+        if (this.weight() > o.weight()) return 1;
+        return 0;
     }
 }
