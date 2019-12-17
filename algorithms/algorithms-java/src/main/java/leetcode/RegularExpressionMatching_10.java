@@ -57,10 +57,6 @@ public class RegularExpressionMatching_10 {
             }
         }
 
-        for(int st : possibleStates){
-            if (st == M) return true;
-        }
-
-        return false;
+        return possibleStates.contains(M);
     }
 }
