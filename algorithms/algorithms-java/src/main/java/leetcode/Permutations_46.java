@@ -27,15 +27,14 @@ public class Permutations_46 {
             return;
         }
 
-        //1,2,3
-        //1,2
         for(int i=0; i<nums.length; i++){
             if (p.contains(nums[i])) continue;
+            //nums[i] is not present in p, so append nums[i]
             p.add(nums[i]);
             permute(list, p, nums);
+            //undo the append, so reuse p
             p.remove(p.size()-1);
         }
-
     }
 
     //this is slow
@@ -48,6 +47,7 @@ public class Permutations_46 {
             return result;
         }
 
+        //partial result
         List<List<Integer>> result = new ArrayList<>();
         for(int i: nums){
             for(List<Integer> p : permuteslow(copyWithout(nums, i))){

@@ -40,5 +40,9 @@ public class DepthFirstDirectedPaths {
         return stack;
     }
 
+    public boolean marked(int v){
+        return marked[v];
+    }
+
 
 }
