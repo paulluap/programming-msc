@@ -34,6 +34,24 @@ public class StringAlgoTest {
         Assert.assertEquals( "[are,by,sea,seashells,seashells,sells,sells,she,she,shells,shore,surely,the,the]"
                 ,CollectionUtils.toString(a));
     }
+    @Test
+    public void threeWayQuickSortTest(){
+        String[] a = new String[]{
+                "she", "sells", "seashells", "by", "the", "sea", "shore", "the", "shells", "she", "sells", "are", "surely", "seashells"
+        };
+        ThreeWayQuick.sort(a);
+        Assert.assertEquals( "[are,by,sea,seashells,seashells,sells,sells,she,she,shells,shore,surely,the,the]"
+                ,CollectionUtils.toString(a));
+    }
 
+
+    @Test
+    public void testRegEx(){
+        Assert.assertTrue(new RegularExpressionNFA("(.*(A*B|AC)D.*)").recognize("BD"));
+        Assert.assertTrue(new RegularExpressionNFA("(.*(A*B|AC)D.*)").recognize("AAAAABD"));
+        Assert.assertTrue(new RegularExpressionNFA("(.*(A*B|AC)D.*)").recognize("ACD"));
+        Assert.assertFalse(new RegularExpressionNFA("(.*(A*B|AC)D.*)").recognize("AAACD"));
+
+    }
 
 }

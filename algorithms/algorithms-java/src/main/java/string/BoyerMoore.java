@@ -15,11 +15,12 @@ public class BoyerMoore {
         }
 
         int skip;
-        for(int i=0; i<N-M; i+=skip){
+        for(int i=0; i<=N-M; i+=skip){
             skip = 0;
             for(int j=M-1; j>=0; j--){
                 if (s.charAt(i+j) != pat.charAt(j)){
                     //change skip
+                    System.out.println("[i] : " + i + " skip: " + s.charAt(i+j));
                     skip = Math.max(1, j-right[s.charAt(i+j)]);
                     break;
                 }
@@ -32,7 +33,8 @@ public class BoyerMoore {
     }
 
     public static void main(String[] args) {
-        int x = BoyerMoore.search("findneedleinheystack", "needle");
-        System.out.println(x == 4);
+//        int x = BoyerMoore.search("findneedleinheystack", "needle");
+        int x = BoyerMoore.search("mississippi", "sippi");
+        System.out.println(x );
     }
 }

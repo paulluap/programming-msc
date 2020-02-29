@@ -20,7 +20,7 @@ public class NQueens_51 {
 
     private void solveNQueues(int row, int column[], int N, List<List<String>> result){
         /*
-         * column index array, enough to keep our state
+         * column indexed array, enough to keep our state
          * column[x] is the column index of row x
          */
         if (row == N){
@@ -50,14 +50,13 @@ public class NQueens_51 {
 
     private boolean isOK(int column[], int i, int j, int N) {
         //go leftup, rightup, and up, to check if any attack
-        int left = j-1, right = j+1;
-        for(int r=i-1; r>=0; r--){
+        for(int r=i-1, left = j-1, right = j+1; r>=0; r--, left--, right++){
             //go up: i-1, j, and see q
             if (column[r] == j) return false;
             //go left up: i-1, j-1, and see q
-            if (left >= 0 && column[r] == left--) return false;
+            if (left >= 0 && column[r] == left) return false;
             //go right up: i-1, j+1, and see q
-            if (right < N && column[r] == right++) return false;
+            if (right < N && column[r] == right) return false;
         }
         return true;
     }

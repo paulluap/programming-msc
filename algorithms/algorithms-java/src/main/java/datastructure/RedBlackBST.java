@@ -39,6 +39,7 @@ public class RedBlackBST<K extends Comparable<K>, V> {
 
     private Node put(Node node, K k, V v) {
         if (node == null) return new Node(k, v, RED, 1);
+        //move flipColors here, so the algorithm is top down 2-3-4 tree.
         int cmp = k.compareTo(node.key);
         if (cmp < 0)      node.left = put(node.left, k, v);
         else if (cmp > 0) node.right = put(node.right, k, v);
@@ -96,9 +97,9 @@ public class RedBlackBST<K extends Comparable<K>, V> {
     }
 
     private void flipColors(Node h){
-        h.color = RED;
-        h.left.color = BLACK;
-        h.right.color = BLACK;
+        h.color = !h.color;
+        h.left.color = !h.left.color;
+        h.right.color = !h.right.color;
     }
 
     private int size(Node node){
@@ -133,3 +134,35 @@ public class RedBlackBST<K extends Comparable<K>, V> {
     }
 
 }
+/**
+ * how to delete?
+ *
+ * 2-3 node,
+ * allow 2 node and 3 node,
+ * put, make a 4-node -> split 4-node
+ *
+ *
+ * 2-3-4 node:
+ * The insertion algorithm is based on doing transformation on the way down the path
+ * to maintain the invariant that the current node is not a 4-node (so we are assured
+ * that there is room to insert the node at the bottom) and transformation on the way
+ * up the up the path to balance any 4-nodes that may have been created.
+ *
+ * The transformations on the way down are precisely the same transformations that we
+ * used for splitting 4-nodes in 2-3 trees.
+ * If the root is 4-node, we split it into three 2-nodes,
+ * increasing the height of the tree by 1.
+ *
+ * On the way down the tree,
+ * if we encounter a 4-node with a 2-node as parent, we split the 4-node into two 2-nodes
+ * and pass the middle key to the parent, making it a 3-node.
+ * If we encounter a 4-node with a 3-node as parent, we split the 4-node into two 2-nodes
+ * and pass the middle key to the parent, making it a 4-node.
+ *
+ *
+ * Represent 4-nodes: 3 2-node, with both left and right links red.
+ * split 4 nodes on the way down the tree with color flips.
+ * balance 4-nodes on the way up the tree with rotations, as for insertions
+ *
+ */
+

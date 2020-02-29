@@ -4,17 +4,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
+public class AppTest
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void test() {
+        //0x7 -> b0111
+        int mask = 0x7fffffff; //2^7 -
+        //2's complement
+        System.out.println(mask & -1234);
+
     }
 }

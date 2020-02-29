@@ -19,6 +19,13 @@ public class KMP {
         int i, j;
         for(i=0, j=0; i<N && j<M; i++){
             j = dfa[s.charAt(i)][j];
+            //if use brute force, i
+            /**
+             * s -> a b c d e f g h i j k
+             * p -> a b d
+             */
+//            if (s.charAt(i) == pat.charAt(j)) { j++; }
+//            else { i-=j; j=0; }
         }
         if (j==M) return i - M;
         return N;
