@@ -1,8 +1,5 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class MaximalSpace_221 {
 
     public static void main(String[] args) {
@@ -42,6 +39,7 @@ public class MaximalSpace_221 {
                 if (i==0 || j==0) {
                     dp[j] = matrix[i][j] == '1' ? 1 : 0;
                 }else if ( matrix[i][j] == '1' ) {
+                    //image reach back as far as possible (determined by the smallest accumulated width or length)
                     dp[j] = Math.min(prev /*left, upper*/, Math.min(dp[j] /* up */, dp[j-1] /*left*/)) + 1;
                 }else{
                     dp[j] = 0;
