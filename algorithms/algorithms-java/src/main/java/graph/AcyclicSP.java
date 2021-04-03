@@ -3,7 +3,6 @@ package graph;
 import datastructure.DirectedEdge;
 import datastructure.EdgeWeightedDiagraph;
 import datastructure.Stack;
-import javafx.geometry.VerticalDirection;
 
 public class AcyclicSP {
 

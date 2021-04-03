@@ -1,7 +1,5 @@
 package leetcode;
 
-import sun.jvm.hotspot.oops.Array;
-
 import java.util.*;
 
 public class BinaryTreeLevelOrderTraversal_102 {
