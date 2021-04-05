@@ -33,6 +33,8 @@ set ignorecase
 set expandtab           " expand tabs to spaces by default
 set shiftwidth=4        " number of spaces to use for autoindenting
 set tabstop=4           " a tab is four space
+
+set cursorline          " hightlight curent line
         
 set t_Co=256            " iTerm2 supports 256 color mode. 
 set ai                  " auto indenting
@@ -55,3 +57,6 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setl sw=2 sts=2 et
 autocmd FileType javascript setl sw=2 sts=2 et
 autocmd FileType xml setl sw=2 sts=2 et
+
+
+"TODO refactor vim script like "https://github.com/dwmkerr/dotfiles/blob/master/vim/vimrc
