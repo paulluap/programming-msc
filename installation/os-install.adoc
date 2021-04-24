@@ -1,0 +1,5 @@
+= OS installation instructions
+
+* macbook pro: https://support.apple.com/en-us/HT201372
+* surface pro: https://support.microsoft.com/zh-cn/surface/%e5%88%9b%e5%bb%ba%e5%92%8c%e4%bd%bf%e7%94%a8-surface-%e7%9a%84-usb-%e6%81%a2%e5%a4%8d%e9%a9%b1%e5%8a%a8%e5%99%a8-677852e2-ed34-45cb-40ef-398fc7d62c07?ui=zh-cn&rs=zh-cn&ad=cn#bkmk_download
+

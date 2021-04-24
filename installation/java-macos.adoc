@@ -1,0 +1,37 @@
+= Install Java on MacOS
+
+== Unintall old java
+
+[source,bash]
+----
+sudo rm -rf /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
+sudo rm -rf /Library/PreferencePanes/JavaControlPanel.prefPane
+sudo rm -rf /Library/Application\ Support/Oracle/Java/
+sudo rm -rf /Library/Java/JavaVirtualMachines
+----
+
+== Install Java using asdf
+
+[source,bash]
+----
+#### asdf installation, ignore if already installed ####
+#/Applications/Xcode.app/Contents/Developer does not exist, which may be set by previously installed xcode (now removed)
+#this resets the path to /Library/Developer/CommandLineTools/
+sudo xcode-select -p 
+brew install asdf
+
+#### jdk installation ####
+asdf install java adoptopenjdk-8.0.292+10
+asdf global java adoptopenjdk-8.0.292+10
+echo '. ~/.asdf/plugins/java/set-java-home' >> ~/.bash_profile
+
+#### check #####
+java -version
+----
+
+== references
+* https://www.java.com/zh-CN/download/help/mac_uninstall_java.html
+* https://stackoverflow.com/questions/64917779/wrong-java-home-after-upgrade-to-macos-big-sur-v11-0-1
+* https://www.wiserfirst.com/blog/install-java-with-asdf/
+* https://github.com/halcyon/asdf-java
+* https://asdf-vm.com/#/core-manage-asdf
