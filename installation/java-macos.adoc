@@ -17,7 +17,7 @@ sudo rm -rf /Library/Java/JavaVirtualMachines
 #### asdf installation, ignore if already installed ####
 #/Applications/Xcode.app/Contents/Developer does not exist, which may be set by previously installed xcode (now removed)
 #this resets the path to /Library/Developer/CommandLineTools/
-sudo xcode-select -p 
+sudo xcode-select -r 
 brew install asdf
 
 #### jdk installation ####
@@ -27,6 +27,14 @@ echo '. ~/.asdf/plugins/java/set-java-home' >> ~/.bash_profile
 
 #### check #####
 java -version
+----
+
+== Fix eclipse start
+
+[source,bash]
+----
+cd $(/usr/libexec/java_home)/lib/
+sudo ln -s ../jre/lib/server/libjvm.dylib libserver.dylib
 ----
 
 == references
