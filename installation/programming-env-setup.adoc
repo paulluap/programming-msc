@@ -1,0 +1,57 @@
+= programming environment setup
+
+== dot files setup
+
+[source,bash]
+----
+ln -s ~/projects/programming-notes/dotfiles/.vimrc ~
+#do the same to other dot files
+----
+
+== vim 
+
+After symlinking the .vimrc file, install vim-plug using the official script:
+
+[source,bash]
+----
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+----
+
+Then open vim and run `:PlugInstall`
+
+== windows terminal
+
+.config json
+[source,json]
+----
+{
+  "profiles": {
+    "defaultProfile": "<ubuntu-profile-guid>",
+    "defaults": {
+      "colorScheme": "Tango Light",
+      "cursorShape": "filledBox",
+      "fontFace": "Monaco",
+    },
+    "actions":[
+      {
+        "command": "paste",
+        "keys": "ctrl+shift+v"
+      }
+    ]
+  }
+}
+----
+
+== bash 
+
+
+== proxychains4 setup
+
+[source,bash]
+----
+configFile=/etc/proxychains4.conf # or configFile=~/.proxychains/proxychains.conf
+hostIP=`grep -oP  "(\d+\.)+(\d+)" /etc/resolv.conf`
+sed -i '/^socks5/d' $configFile
+sed -i '$asocks5 '${hostIP}' 4781' $configFile
+----

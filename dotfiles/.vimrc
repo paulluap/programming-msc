@@ -1,5 +1,8 @@
 """vim-plug
-source ~/.vim/vim-plug/plug.vim
+" default script installs under .vim/autoload/
+if filereadable(expand("~/.vim/vim-plug/plug.vim"))
+    source ~/.vim/vim-plug/plug.vim
+endif
 
 call plug#begin('~/.vim/plugged')
 
