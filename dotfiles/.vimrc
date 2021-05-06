@@ -9,6 +9,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -57,6 +58,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setl sw=2 sts=2 et
 autocmd FileType javascript setl sw=2 sts=2 et
 autocmd FileType xml setl sw=2 sts=2 et
+autocmd FileType html setl sw=2 sts=2 et
 
 
 "TODO refactor vim script like "https://github.com/dwmkerr/dotfiles/blob/master/vim/vimrc
