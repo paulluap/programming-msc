@@ -1,4 +1,5 @@
 """vim-plug
+
 " default script installs under .vim/autoload/
 if filereadable(expand("~/.vim/vim-plug/plug.vim"))
     source ~/.vim/vim-plug/plug.vim
@@ -6,13 +7,24 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'              " NerdTree is a tree view for vim.
+Plug 'bling/vim-airline'                " A useful statusbar.
+
+Plug 'altercation/vim-colors-solarized' " Solarized Colorscheme for Vim
+Plug 'skywind3000/asyncrun.vim'         " run commands in background and read output in the quickfix (vim8)
+Plug 'mattn/emmet-vim'                  " for xml editing, abbreviation expansion 
+Plug 'tpope/vim-fugitive'               " Git support
+Plug 'tpope/vim-surround'               " Surround motions
+Plug 'preservim/nerdcommenter'          " NERD Commenter plugin.
+Plug 'rking/ag.vim'                     " Front end of ag (requires silversearcher-ag)
+Plug 'dhruvasagar/vim-table-mode'
+
+" to try this 
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Modern, LSP-based autocompletion.
+
+" FZF Vim Integration.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -41,7 +53,6 @@ set tabstop=4           " a tab is four space
 set cursorline          " hightlight curent line
         
 set t_Co=256            " iTerm2 supports 256 color mode. 
-set ai                  " auto indenting
 set history=100         " keep 100 lines of history
 
 set autoindent          " always set autoindenting on
