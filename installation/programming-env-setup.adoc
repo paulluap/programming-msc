@@ -55,3 +55,15 @@ hostIP=`grep -oP  "(\d+\.)+(\d+)" /etc/resolv.conf`
 sed -i '/^socks5/d' $configFile
 sed -i '$asocks5 '${hostIP}' 4781' $configFile
 ----
+
+== Xtext
+
+plugin package download site: https://www.eclipse.org/modeling/tmf/downloads/
+
+In eclipse, 
+1. Select Help -> Install New Software
+1. Click on Add
+1. In the Add Repository windows, click on archive and select the downloaded xtext update zip
+1. follow the instructions to complete
+
+
