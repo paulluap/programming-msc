@@ -1,5 +1,6 @@
 """vim-plug
 
+
 " default script installs under .vim/autoload/
 if filereadable(expand("~/.vim/vim-plug/plug.vim"))
     source ~/.vim/vim-plug/plug.vim
@@ -17,6 +18,7 @@ Plug 'tpope/vim-fugitive'               " Git support
 Plug 'tpope/vim-surround'               " Surround motions
 Plug 'preservim/nerdcommenter'          " NERD Commenter plugin.
 Plug 'rking/ag.vim'                     " Front end of ag (requires silversearcher-ag)
+Plug 'tpope/vim-repeat'                 " Allow the 'dot' for repeating even for plugins.
 Plug 'dhruvasagar/vim-table-mode'
 
 " to try this 
@@ -67,6 +69,8 @@ set noerrorbells                " don't beep
 
 set wildmenu                    " make tab completion for files/buffers act like bash
 set wildignore=*.swp,*.bak,*.pyc,*.class
+
+set re=0                " without this, open ts is slow ...
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setl sw=2 sts=2 et
