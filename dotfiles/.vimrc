@@ -79,4 +79,10 @@ autocmd FileType xml setl sw=2 sts=2 et
 autocmd FileType html setl sw=2 sts=2 et
 
 
+" Plugin: NerdTree settings
+    nnoremap <C-t> :NERDTreeToggle<CR>
+
+  
+
+
 "TODO refactor vim script like "https://github.com/dwmkerr/dotfiles/blob/master/vim/vimrc
