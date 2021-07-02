@@ -20,6 +20,8 @@ Plug 'preservim/nerdcommenter'          " NERD Commenter plugin.
 Plug 'rking/ag.vim'                     " Front end of ag (requires silversearcher-ag)
 Plug 'tpope/vim-repeat'                 " Allow the 'dot' for repeating even for plugins.
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'jeetsukumaran/vim-buffergator'    " buffer navigator
+
 
 " to try this 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Modern, LSP-based autocompletion.
@@ -72,12 +74,16 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 
 set re=0                " without this, open ts is slow ...
 
+
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setl sw=2 sts=2 et
 autocmd FileType javascript setl sw=2 sts=2 et
 autocmd FileType xml setl sw=2 sts=2 et
 autocmd FileType html setl sw=2 sts=2 et
 
+"" basic shortcuts
+nnoremap <c-h> :bprevious<cr> 
+nnoremap <c-l> :bnext<cr>
 
 " Plugin: NerdTree settings
     nnoremap <C-t> :NERDTreeToggle<CR>
