@@ -1,0 +1,31 @@
+
+=== Accountability pattern
+
+----
+┌──────────────────────────────────────────────────────┐
+│ x: self.Accountability                               └─┐
+│ x.type.commissioners->includes(x.commissioner.type)    │
+│ and x.type.responsibles->include(x.responsible.type)   │ 
+└─────┬──────────────────────────────────────────────────┘
+      │ 
+      │           ┌─────────────────┐ *              commissioners 1..*    ┌───────┐
+      │           │  Accountability │──────────────────────────────────────│ Party │ 
+      └───────────│      Type       │──────────────────────────────────────│  Type │  
+                  └──────┬──────────┘ *              responsibles 1..*     └───┬───┘ 
+                         │1                                                    │1
+knowledge level          │                                                     │ 
+- - - - - - - - -  - - - │- - -  - - - - - - - - - - - - - - - - - - - - - - - │- - - - - - - 
+operational level        │                                                     │ 
+                         │*                                                    │*
+┌─────────┐       ┌──────┴──────────┐ *                   commissioner  1  ┌───┴───┐
+│ Action  │*     *│  Accountability │──────────────────────────────────────│ Party │ 
+│         │───────│      Type       │──────────────────────────────────────│       │  
+└─────────┘       └─────────────────┘ *                    responsible  1  └───────┘ 
+                  
+----
+
+
+=== Modeling Principal:
+* design a model so that the most frequent modification of the model causes changes to the least number of types.
+* Whenever defining features for a type that has a supertype, consider whether placing the features on the supertype makes sense.
+* Explicitly divide a model into operational and knowledge levels.
