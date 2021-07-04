@@ -21,6 +21,7 @@ Plug 'rking/ag.vim'                     " Front end of ag (requires silversearch
 Plug 'tpope/vim-repeat'                 " Allow the 'dot' for repeating even for plugins.
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'jeetsukumaran/vim-buffergator'    " buffer navigator
+Plug 'majutsushi/tagbar'                " code outline
 
 
 " to try this 
