@@ -1,4 +1,6 @@
 = programming environment setup
+:toc: left
+:toclevels: 4
 
 == dot files setup
 
@@ -19,6 +21,52 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ----
 
 Then open vim and run `:PlugInstall`
+
+== Java
+
+=== Unintall old java
+
+[source,bash]
+----
+sudo rm -rf /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin
+sudo rm -rf /Library/PreferencePanes/JavaControlPanel.prefPane
+sudo rm -rf /Library/Application\ Support/Oracle/Java/
+sudo rm -rf /Library/Java/JavaVirtualMachines
+----
+
+=== Install Java using asdf
+
+[source,bash]
+----
+#### asdf installation, ignore if already installed ####
+#/Applications/Xcode.app/Contents/Developer does not exist, which may be set by previously installed xcode (now removed)
+#this resets the path to /Library/Developer/CommandLineTools/
+sudo xcode-select -r 
+brew install asdf
+
+#### jdk installation ####
+asdf install java adoptopenjdk-8.0.292+10
+asdf global java adoptopenjdk-8.0.292+10
+echo '. ~/.asdf/plugins/java/set-java-home' >> ~/.bash_profile
+
+#### check #####
+java -version
+----
+
+=== Fix eclipse start
+
+[source,bash]
+----
+cd $(/usr/libexec/java_home)/lib/
+sudo ln -s ../jre/lib/server/libjvm.dylib libserver.dylib
+----
+
+=== references
+* https://www.java.com/zh-CN/download/help/mac_uninstall_java.html
+* https://stackoverflow.com/questions/64917779/wrong-java-home-after-upgrade-to-macos-big-sur-v11-0-1
+* https://www.wiserfirst.com/blog/install-java-with-asdf/
+* https://github.com/halcyon/asdf-java
+* https://asdf-vm.com/#/core-manage-asdf
 
 == windows terminal
 
@@ -48,12 +96,41 @@ Then open vim and run `:PlugInstall`
 
 == proxychains4 setup
 
+----
+git clone https://github.com/haad/proxychains.git
+cd proxychains
+make 
+make install
+cp src/proxychains.conf ~/.proxychains/proxychains.conf
+vim ~/.proxychains/proxychains.conf
+# - socks4 127.0.0.1 9050 
+# + socks5 127.0.0.1 4781
+----
+
+wsl2: modify host ip 
+
+~/.bashrc
 [source,bash]
 ----
+....
+
 configFile=/etc/proxychains4.conf # or configFile=~/.proxychains/proxychains.conf
 hostIP=`grep -oP  "(\d+\.)+(\d+)" /etc/resolv.conf`
 sed -i '/^socks5/d' $configFile
 sed -i '$asocks5 '${hostIP}' 4781' $configFile
+----
+
+== Git proxy set up
+
+(Required for homebrew installation)
+
+[source,bash]
+----
+git config --global http.proxy 'socks5://localhost:4781'
+git config --global https.proxy 'socks5://localhost:4781'
+# to unset 
+#git config  --global  --unset http.proxy
+#git config  --global  --unset https.proxy
 ----
 
 == Xtext
@@ -61,9 +138,13 @@ sed -i '$asocks5 '${hostIP}' 4781' $configFile
 plugin package download site: https://www.eclipse.org/modeling/tmf/downloads/
 
 In eclipse, 
+
 1. Select Help -> Install New Software
 1. Click on Add
 1. In the Add Repository windows, click on archive and select the downloaded xtext update zip
 1. follow the instructions to complete
+
+== HomeBrew
+
 
 
