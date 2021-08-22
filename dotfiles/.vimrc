@@ -22,6 +22,7 @@ Plug 'tpope/vim-repeat'                 " Allow the 'dot' for repeating even for
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'jeetsukumaran/vim-buffergator'    " buffer navigator
 Plug 'majutsushi/tagbar'                " code outline
+Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Modern, LSP-based autocompletion.
 
 
 " to try this 

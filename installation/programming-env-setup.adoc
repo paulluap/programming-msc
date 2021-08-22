@@ -133,6 +133,15 @@ git config --global https.proxy 'socks5://localhost:4781'
 #git config  --global  --unset https.proxy
 ----
 
+after installing homebrew, reinstall git from brew
+
+----
+brew install git
+----
+
+this is to workaround problems running `proxychain git `
+
+
 == Xtext
 
 plugin package download site: https://www.eclipse.org/modeling/tmf/downloads/
@@ -143,8 +152,4 @@ In eclipse,
 1. Click on Add
 1. In the Add Repository windows, click on archive and select the downloaded xtext update zip
 1. follow the instructions to complete
-
-== HomeBrew
-
-
 
