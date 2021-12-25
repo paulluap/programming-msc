@@ -1,0 +1,118 @@
+
+== 2.1: Functions, epimorphisms 
+
+Category of Types and Functions
+
+=== Concepts with SET theory
+
+Sets and functions between sets
+
+* Function has directionality
+** Domain
+** CoDomain
+** Image
+
+* Isomophsim 
+
+functions that are invertable 
+
+----
+f::a->b   g.f = id(a)
+g::b->a   f.g = id(b)
+----
+
+Function may not be invertable, for two reaons:
+
+* Function that collapses things, abstraction (e.g.: even=x->x%2===0)  (not injective)
+* Image does not fill the whole codomain, modelling (not Surjective)
+
+
+Math terms:
+
+* Injective: functions that do not callpase, no shrinking, no forgetting, no abstraction
+* Surjective: covers the whole thing, image = whole codomain 
+* Injective & Surjective at the same time => Isomophsim
+
+=== Epimorphisms
+
+* Epic, Epimorphism (Surjective)
+* Monic, Monomorphism (Injective)
+
+f is an Epimorphism a->b, if 
+
+for every other object c in the whole category, 
+and for every pair of morphisms from b to c:  g1, g2 of type b->c,  
+
+if g1.f = g2.f,  then g1 = g2
+
+== 2.2 Monomorphism, simple types
+
+=== Monomorphism
+
+for every object c, and every pair of g1, g2 : c->a, 
+if f.g1 = f.g2, it leads to g1 = g2 
+then we say f (a->b) is monomorphism
+
+note in Epimorphism we use post composition, here we use pre composition
+
+if f collapses, then not monomorphism
+
+Epic & Monic does not mean Isomophsim
+
+
+=== Types
+
+Simplest set, empty set, does it corresponde to a type
+
+in Haskel, empty set --> void
+
+*Void*
+
+Correspondes to logic false
+[source]
+----
+absurd:: void->Int
+id(void)::Void->Void
+----
+They exists, but you cannot call it
+
+function is proof, or proposition, you cannot prove something that is false.
+If something is false. It's false. It has no proof
+
+You can not construct falsity from something
+
+*Unit*
+
+Correspondes to logic True
+
+[source]
+----
+Unit  ()::()
+unit :: a->()
+one :: ()->Int
+----
+
+Void and Unit form the basis 
+
+
+== 3.2 Examples of categories
+
+* Zero (0) (initial object)
+* One (1) 
+* ...
+* free construction
+* Order (arrow is not function)
+** total order
+** pre order  --- thin category, hom set, has zero or one arrow from a to b
+** partial order, if an arrow goes from a to b, there is no arrow from b to a
+
+
+
+
+
+
+
+
+
+
+
