@@ -20,19 +20,23 @@ Plug 'preservim/nerdcommenter'          " NERD Commenter plugin.
 Plug 'rking/ag.vim'                     " Front end of ag (requires silversearcher-ag)
 Plug 'tpope/vim-repeat'                 " Allow the 'dot' for repeating even for plugins.
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'jeetsukumaran/vim-buffergator'    " buffer navigator
 Plug 'majutsushi/tagbar'                " code outline
-Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Modern, LSP-based autocompletion.
-
-
-" to try this 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Modern, LSP-based autocompletion.
 
 " FZF Vim Integration.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
+
+
+""" plugin settings BEGIN
+
+" Plugin: Airline Settings
+    " Show the buffers in the tabline.
+        let g:airline#extensions#tabline#enabled = 1
+
+""" plugin settings END
+
 
 
 let g:solarized_termcolors=256
