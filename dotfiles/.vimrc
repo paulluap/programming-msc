@@ -26,7 +26,10 @@ Plug 'majutsushi/tagbar'                " code outline
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
-call plug#end()
+if has('nvim')
+    Plug 'nvim-lua/plenary.nvim'             "required by mental-nvims
+    Plug 'scalameta/nvim-metals'
+endif
 
 
 """ plugin settings BEGIN
@@ -38,6 +41,7 @@ call plug#end()
 """ plugin settings END
 
 
+call plug#end()
 
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -80,6 +84,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 
 set re=0                " without this, open ts is slow ...
 
+set shortmess-=F       "required by https://github.com/scalameta/nvim-metals
 
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType typescript setl sw=2 sts=2 et
@@ -94,7 +99,35 @@ nnoremap <c-l> :bnext<cr>
 " Plugin: NerdTree settings
     nnoremap <C-t> :NERDTreeToggle<CR>
 
-  
+"""" nvim lsp-metals 
+if has('nvim')
+    augroup lsp
+      au!
+      au FileType scala,sbt lua require("metals").initialize_or_attach({})
+    augroup end
+    "-----------------------------------------------------------------------------
+    " Helpful general settings
+    "-----------------------------------------------------------------------------
+    " Needed for compltions _only_ if you aren't using completion-nvim
+    autocmd FileType scala setlocal omnifunc=v:lua.vim.lsp.omnifunc
+    "-----------------------------------------------------------------------------
+    " nvim-lsp Mappings
+    "-----------------------------------------------------------------------------
+    nnoremap <silent> gd          <cmd>lua vim.lsp.buf.definition()<CR>
+    nnoremap <silent> K           <cmd>lua vim.lsp.buf.hover()<CR>
+    nnoremap <silent> gi          <cmd>lua vim.lsp.buf.implementation()<CR>
+    nnoremap <silent> gr          <cmd>lua vim.lsp.buf.references()<CR>
+    nnoremap <silent> gds         <cmd>lua vim.lsp.buf.document_symbol()<CR>
+    nnoremap <silent> gws         <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+    nnoremap <silent> <leader>rn  <cmd>lua vim.lsp.buf.rename()<CR>
+    nnoremap <silent> <leader>f   <cmd>lua vim.lsp.buf.formatting()<CR>
+    nnoremap <silent> <leader>ca  <cmd>lua vim.lsp.buf.code_action()<CR>
+    nnoremap <silent> <leader>ws  <cmd>lua require'metals'.worksheet_hover()<CR>
+    nnoremap <silent> <leader>a   <cmd>lua require'metals'.open_all_diagnostics()<CR>
+    nnoremap <silent> <space>d    <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+    nnoremap <silent> [c          <cmd>lua vim.lsp.diagnostic.goto_prev { wrap = false }<CR>
+    nnoremap <silent> ]c          <cmd>lua vim.lsp.diagnostic.goto_next { wrap = false }<CR>
+endif
 
 
 "TODO refactor vim script like "https://github.com/dwmkerr/dotfiles/blob/master/vim/vimrc
