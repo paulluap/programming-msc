@@ -32,6 +32,15 @@ if has('nvim')
 endif
 
 
+""" plugin settings BEGIN
+
+" Plugin: Airline Settings
+    " Show the buffers in the tabline.
+        let g:airline#extensions#tabline#enabled = 1
+
+""" plugin settings END
+
+
 call plug#end()
 
 let g:solarized_termcolors=256
