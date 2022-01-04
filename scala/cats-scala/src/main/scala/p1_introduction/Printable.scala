@@ -28,8 +28,7 @@ object PrintableSyntax {
   //use context boudn on extension
   extension[T:Printable] (value: T)
     def format: String = summon[Printable[T]].format(value)
-  extension[T:Printable] (value: T)
-    def print: Unit = println(format(value))
+    def print: Unit = println(value.format)
 }
 
 //syntax interface scala2
