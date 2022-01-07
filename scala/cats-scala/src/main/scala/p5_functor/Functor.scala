@@ -11,6 +11,10 @@ import cats.syntax.functor._
 //trait Functor[F[_]] {
  // def map[A,B](fa: F[A])(f: A=>B) : F[B]
 //}
+/*
+* List (type constructor) --> List[A] (type)
+* math.abs (function) --> math.abs(x) (value)
+*/
 
 given Functor[Option] with
   def map[A,B](value: Option[A])(func: A=>B): Option[B] = {
@@ -20,7 +24,7 @@ given Functor[Option] with
 
   //TODO: can we use context bound?
 def doMath[F[_]](start: F[Int])
-  (using Functor[F]): F[Int] = start.map(n => n + 1 * 2)
+  (using Functor[F]): F[Int] = start.map(n => n + 1 * 2) /*sommon[Functor[F]].map(start)(n => n + 1 * 2) */
 //define a fucntor for option
 //implicit val optionFu
 
@@ -54,6 +58,7 @@ object Tree{
     }
 
   println(tree)
+  println("--- do math on tree ")
   println(doMath(tree))
   println(tree.map(_*2))
 
