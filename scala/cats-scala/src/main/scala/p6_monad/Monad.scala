@@ -27,6 +27,7 @@ trait MyMonad[F[_]] {
   }
 }
 
+
 object MyIdMonadExercise {
   def pure[A](value: A): Id[A] = 
     value
@@ -60,6 +61,44 @@ object CreatingInstances {
   }
 }
 
+object MonadErrorEx {
+  trait MyMonadError[F[_], E] {
+    def raiseError[A](e: E): F[A]
+    def handleErrorWith[A](fa: F[A])(f: E => F[A]): F[A]
+    def handleError[A](fa: F[A])(f: E => A): F[A]
+    def ensure[A](fa: F[A])(e: E)(f: A => Boolean): F[A]
+  }
+
+  import cats.MonadError
+  import cats.instances.either._
+  import scala.util.{Try, Success, Failure}
+
+
+  //MonadError requires a type constructor with one type parameter (hole) to fill on monad error method invocation
+  def validateAdult[F[_]](age: Int)(implicit me: MonadError[F, Throwable]): F[Int] = {
+    if (age < 18) 
+      me.raiseError(IllegalArgumentException(s"${age} is not adult"))
+    else
+      me.pure(age)
+  }
+
+  def test = {
+    type ErrorOr[A] = Either[String, A]
+    val monadError = MonadError[ErrorOr, String]
+    //raiseError is like the pure method for monad except it creates
+    //an instance representing a failure
+    println(monadError.pure(42));
+    println(monadError.raiseError("BADNESS"))
+    //without [Try] we get Right(38)
+    assert(Success(38) == validateAdult[Try](38))
+    assert(validateAdult[Try](10).isFailure)
+    type ExceptionOr[A] = Either[Throwable, A]
+    assert(validateAdult[ExceptionOr](-1).isLeft)
+    assert(validateAdult[ExceptionOr](31).isRight)
+  }
+
+}
+
 
 
 def sumSquare[F[_]: Monad](a: F[Int], b: F[Int]): F[Int] = 
@@ -88,12 +127,13 @@ def stringDivideBy2(aStr: String, bStr: String) : Option[Int] = {
 @main def MonadTest = {
   val fm = Monad[Future]
   val future = fm.flatMap(fm.pure(1))(x => fm.pure(x+2))
-  println(Await.result(future, 1.second))
-  println("---- monad test")
+  //println(Await.result(future, 1.second))
+  //println("---- monad test")
 
-  println(stringDivideBy("8", "4"))
-  println(stringDivideBy2("8", "4"))
-  println(sumSquare(List(1,2,3), List(4,5)))
-  println(sumSquare(3: Id[Int], 4: Id[Int]))
-  CreatingInstances.test
+  //println(stringDivideBy("8", "4"))
+  //println(stringDivideBy2("8", "4"))
+  //println(sumSquare(List(1,2,3), List(4,5)))
+  //println(sumSquare(3: Id[Int], 4: Id[Int]))
+  //CreatingInstances.test
+  MonadErrorEx.test
 }
