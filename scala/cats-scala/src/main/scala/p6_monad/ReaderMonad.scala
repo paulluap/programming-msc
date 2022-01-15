@@ -73,7 +73,6 @@ object ReaderMonadEx {
         println(checkLogin(1, "zerocool").run(db))
         println(checkLogin(4, "junk").run(db))
     }
-
 }
 
 @main def ReaderMonad: Unit = {
