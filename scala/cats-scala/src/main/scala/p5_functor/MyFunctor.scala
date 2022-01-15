@@ -7,7 +7,7 @@ object MyFunctorDef {
   }
   
   object MyFunctor {
-      def apply[F[_]](using MyFunctor[F]) = summon[MyFunctor[F]]
+      def apply[F[_]: MyFunctor] = summon[MyFunctor[F]]
   }
   
   extension [F[_]: MyFunctor, A](target: F[A])/*(using MyFuctor[F])*/ {
