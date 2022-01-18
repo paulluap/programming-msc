@@ -22,8 +22,9 @@ object StateMonadBasics {
             b <- step2
         } yield (a,b)
         
-        println(both.run(20).value)
-        println(both2.run(20).value)
+        println(both.run(20).value) 
+        //(43, (Result of Stap1: 21, Result of step2: 42))
+        println(both2.run(20).value) //9
     }
 }
 
