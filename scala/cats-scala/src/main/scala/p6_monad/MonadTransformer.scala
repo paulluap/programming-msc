@@ -4,6 +4,10 @@ import cats.data.{ OptionT, EitherT }
 import cats.instances.list._     //for Monad
 import cats.syntax.applicative._ //for pure
 import cats.instances.either._   //for Monad
+import cats.instances.future._ //for monad
+import scala.concurrent.Await
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 
 @main def MonadTransformer : Unit = {
   //list option example
@@ -39,6 +43,7 @@ import cats.instances.either._   //for Monad
   //Either[F[_], E, A]
   type FutureEither[A] = EitherT[Future, String, A]
   type FutureEitherOption[A] = OptionT[FutureEither, A]
+  10.pure[FutureEitherOption]
 
 
 }
