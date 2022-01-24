@@ -44,6 +44,7 @@ object FoldableBasics {
 
 @main
 def RunFoldableBasics: Unit = {
+  (1 to 100000).to(LazyList).foldRight
   FoldableBasics.test
 }
 
