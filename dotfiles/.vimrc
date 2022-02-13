@@ -26,6 +26,9 @@ Plug 'majutsushi/tagbar'                " code outline
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'rbgrouleff/bclose.vim'            " buffer close without deleting
+
+
 if has('nvim')
     Plug 'nvim-lua/plenary.nvim'             "required by mental-nvims
     Plug 'scalameta/nvim-metals'
