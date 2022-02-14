@@ -23,6 +23,9 @@ object ConfManagement:
 
   //only here we know viewers is Set[Person]
   opaque type Viewers = Set[Person]
+  def viewers(using vs: Viewers) = vs
+
+  type Viewed[T] = Viewers ?=> T
 
   class Conference(ratings: (Paper, Int)*): 
 
@@ -31,18 +34,19 @@ object ConfManagement:
     def papers: List[Paper] = ratings.map((p,_)=>p).toList
 
     //if one of the viewers is also an author of the paper, the score is masked, returning -100
-    def score(paper: Paper)(using viewers: Viewers): Int = 
+    def score(paper: Paper): Viewed[Int] = 
       if paper.authors.exists(viewers.contains) then -100
       else realScore(paper)
 
-    def rankings(using viewers: Viewers): List[Paper] = 
-      papers.sortBy(score(_)).reverse
+    def rankings: Viewed[List[Paper]] = 
+      val res : List[Paper]= papers.sortBy(score(_)).reverse
+      res
 
-    def ask[T](p: Person, query: Viewers=>T) = 
-      query(Set(p))
+    def ask[T](p: Person, query: Viewed[T]) = 
+      query(using Set(p))
 
-    def delegateTo[T](p: Person, query: Viewers=>T)(using viewers: Viewers): T=
-      query(viewers + p)
+    def delegateTo[T](p: Person, query: Viewed[T]): Viewed[T]=
+      query(using viewers + p)
 
 
   end Conference
@@ -63,8 +67,7 @@ end ConfManagement
 
   //which authors have at leat two papers with a score over 80
     def highlyRankedProlificAuthors(asking: Person): Set[Person] = 
-      def query(viewers : Viewers): Set[Person] = 
-        given Viewers = viewers
+      def query: Viewed[Set[Person]] = 
         val highlyRanked =  
           conf.rankings.takeWhile(conf.score(_) > 80).toSet
         //if some cheat, conf.rankings(Set())..., can be fixed by making viewers type opache
