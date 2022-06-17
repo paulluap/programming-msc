@@ -47,7 +47,7 @@ endif
 call plug#end()
 
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme desert
 
 set t_Co=256            " iTerm2 supports 256 color mode. 
 set history=100         " keep 100 lines of history
@@ -67,7 +67,7 @@ set expandtab           " expand tabs to spaces by default
 set shiftwidth=4        " number of spaces to use for autoindenting
 set tabstop=4           " a tab is four space
 
-set cursorline          " hightlight curent line
+"set cursorline          " hightlight curent line
         
 set t_Co=256            " iTerm2 supports 256 color mode. 
 set history=100         " keep 100 lines of history
@@ -100,7 +100,7 @@ nnoremap <c-h> :bprevious<cr>
 nnoremap <c-l> :bnext<cr>
 
 " Plugin: NerdTree settings
-    nnoremap <C-t> :NERDTreeToggle<CR>
+    nnoremap <leader>n :NERDTreeToggle<CR>
 
 """" nvim lsp-metals 
 if has('nvim')

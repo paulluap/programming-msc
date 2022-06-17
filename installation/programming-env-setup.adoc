@@ -34,6 +34,20 @@ sudo rm -rf /Library/Application\ Support/Oracle/Java/
 sudo rm -rf /Library/Java/JavaVirtualMachines
 ----
 
+=== Install Java using Coursier
+
+Coursier: Pure Scala Artifact Fetching, https://get-coursier.io/
+
+[source]
+----
+cs setup  #installs everything 
+cs java -available
+cs java --jvm 11 -version 
+cs java --jvm 11 --setup
+----
+
+
+
 === Install Java using asdf
 
 [source,bash]
