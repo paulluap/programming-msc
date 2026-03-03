@@ -8,16 +8,16 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'              " NerdTree is a tree view for vim.
+Plug 'scrooloose/nerdtree'              " NerdTree is a tree view for vim. => inoremap <c-b> <Esc>:Lex<cr>:vertical resize 30<cr>
 Plug 'bling/vim-airline'                " A useful statusbar.
 
 Plug 'altercation/vim-colors-solarized' " Solarized Colorscheme for Vim
-Plug 'skywind3000/asyncrun.vim'         " run commands in background and read output in the quickfix (vim8)
-Plug 'mattn/emmet-vim'                  " for xml editing, abbreviation expansion 
-Plug 'tpope/vim-fugitive'               " Git support
+Plug 'skywind3000/asyncrun.vim'         " run commands in background and read output in the quickfix (vim8) => use terminal
+Plug 'mattn/emmet-vim'                  " for xml editing, abbreviation expansion => vim-surround
+Plug 'tpope/vim-fugitive'               " Git support => lazygit
 Plug 'tpope/vim-surround'               " Surround motions
 Plug 'preservim/nerdcommenter'          " NERD Commenter plugin.
-Plug 'rking/ag.vim'                     " Front end of ag (requires silversearcher-ag)
+Plug 'rking/ag.vim'                     " Front end of ag (requires silversearcher-ag) => fzf.vim
 Plug 'tpope/vim-repeat'                 " Allow the 'dot' for repeating even for plugins.
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'majutsushi/tagbar'                " code outline
